@@ -3,6 +3,11 @@
     <head>
         <title>Eeepinen salain</title>
         <meta charset="UTF-8">
+        <style>
+            #korvaavat, #korvattavat {
+                font-family: Courier, monospace;
+            }
+        </style>
         <script>
             function salaa() {
                 
@@ -41,21 +46,24 @@
         <textarea id="teksti" 
                   name="teksti" 
                   rows="10" 
-                  cols="80"></textarea>
+                  cols="80"
+                  oninput="salaa()"></textarea>
 
         <div>Korvattavat merkit:</div>
         <input type="text" 
                id="korvattavat" 
                name="korvattavat" 
                size="50" 
-               value="ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ">
+               value="ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
+               oninput="salaa()">
 
         <div>Korvaavat merkit:</div>
         <input type="text"
                id="korvaavat"
                name="korvaavat"
                size="50"
-               value="ÅÄÖABCDEFGHIJKLMNOPQRSTUVWXYZ">
+               value="ÅÄÖABCDEFGHIJKLMNOPQRSTUVWXYZ"
+               oninput="salaa()">
 
         <div>Salattu:</div>
         <textarea id="salattu" 
