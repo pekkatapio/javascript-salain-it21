@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eeepinen salain</title>
+        <meta charset="UTF-8">
+        <script>
+            function salaa() {
+                
+                let teksti = document.getElementById("teksti").value;
+                let korvattavat = document.getElementById("korvattavat").value;
+                let korvaavat = document.getElementById("korvaavat").value;
+                let salattu = "";
+
+                teksti = teksti.toUpperCase();
+
+                korvattavat = korvattavat + "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ";
+
+                korvaavat = korvaavat + ".".repeat(korvattavat.length);
+
+                for (let index = 0; index < teksti.length; index++) {
+                    let merkki = teksti.charAt(index);
+                    let paikka = korvattavat.indexOf(merkki);
+                    if (paikka >= 0) {
+                        let korvaava = korvaavat.charAt(paikka);
+                        salattu = salattu + korvaava;
+                    } else {
+                        salattu = salattu + merkki;
+                    }
+                }
+                
+                document.getElementById("salattu").value = salattu;
+
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Eeppinen salain</h1>
+
+        <div>Teksti:</div>
+        <textarea id="teksti" 
+                  name="teksti" 
+                  rows="10" 
+                  cols="80"></textarea>
+
+        <div>Korvattavat merkit:</div>
+        <input type="text" 
+               id="korvattavat" 
+               name="korvattavat" 
+               size="50" 
+               value="ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ">
+
+        <div>Korvaavat merkit:</div>
+        <input type="text"
+               id="korvaavat"
+               name="korvaavat"
+               size="50"
+               value="ÅÄÖABCDEFGHIJKLMNOPQRSTUVWXYZ">
+
+        <div>Salattu:</div>
+        <textarea id="salattu" 
+                  name="salattu" 
+                  rows="10" 
+                  cols="80"></textarea>
+
+        <button onclick="salaa()">TEE TAIKOJA!</button>
+
+    </body>
+</html>
